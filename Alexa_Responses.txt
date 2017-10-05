@@ -46,7 +46,7 @@ David L. Boren Lounge: Turn around and use the stairs to go up to the second flo
 
 President's Room: Turn around and use the stairs to go up to the second floor. Then turn left. It will be the fourth room on your left.
 
-Meacham Auditorium: Turn around and use the stairs to go up to the second floor. Then turn left. It's on the right side of the atrium at the end of the hall.
+Meacham_Auditorium: Turn around and use the stairs to go up to the second floor. Then turn left. It's on the right side of the atrium at the end of the hall.
 
 Volunteer Office: Turn around and use the stairs to go up to the second floor. Then turn left. It's at the end of the hallway down the short flight of stairs.
 
