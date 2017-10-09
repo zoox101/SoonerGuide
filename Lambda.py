@@ -128,6 +128,15 @@ def get_room(intent, session):
     card_title = intent['name']
     key = intent['slots']['RoomName']['value']
 
+    new_key = ''
+    for letter in key:
+        if letter == ' ':
+            new_key += '_'
+        else:
+            new_key += letter
+    key = new_key
+    key = key.lower()
+
     speech_output = responses[key]
     reprompt_text = 'Wat?'
     should_end_session = False
