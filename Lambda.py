@@ -50,13 +50,14 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the Alexa Skills Kit sample. " \
-                    "Please tell me your favorite color by saying, " \
-                    "my favorite color is red"
+    speech_output = "Welcome to the Sooner Guide test. " \
+                    "Please ask me for directions by asking me something like, "\
+                    "Where is KXOU?"
+
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Please tell me your favorite color by saying, " \
-                    "my favorite color is red."
+    reprompt_text = "Please ask me for directions by saying something like, " \
+                    "Where is Crossroads?"
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -64,7 +65,7 @@ def get_welcome_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thank you for trying the Alexa Skills Kit sample. " \
+    speech_output = "Thank you for trying Sooner Guide. " \
                     "Have a nice day! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
@@ -72,22 +73,26 @@ def handle_session_end_request():
         card_title, speech_output, None, should_end_session))
 
 
-def get_room(intent, session):
+def get_directions_for_intent(intent, session):
+    """Creates an appropriate response, given intent and session information directly from Alexa"""
 
-    responses = {}
-    responses['kxou'] = 'It\'s the glass room in front of you to the left!'
-    responses['crossroads'] = 'Go down the hall to your left. It will be on your right after the ramp.'
+    room_name = intent['slots']['RoomName']['value']
+    speech_output = get_directions_for_room(room_name)
 
-    session_attributes = {}
+# establish control settings for the response object
     card_title = intent['name']
-    key = intent['slots']['RoomName']['value']
-
-    speech_output = responses[key]
     reprompt_text = 'Wat?'
     should_end_session = False
 
+    session_attributes = {}
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
+
+def get_directions_for_room(room_name):
+    responses = {'kxou': 'It\'s the glass room in front of you to the left!',
+                 'crossroads': 'Go down the hall to your left. It will be on your right after the ramp.'}
+
+    return responses[room_name]
 
 
 # --------------- Events ------------------
@@ -121,7 +126,7 @@ def on_intent(intent_request, session):
 
     # Dispatch to your skill's intent handlers
     if intent_name == "WhereIsMyRoom":
-        return get_room(intent, session)
+        return get_directions_for_intent(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
