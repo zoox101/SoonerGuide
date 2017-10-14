@@ -19,7 +19,7 @@ union_room_synonyms = {
 
     "sooner_room": [""],
 
-    "student_government_association": [""],
+    "student_government_association": ["s. g. a."],
 
     "one_university_store": [""],
 
