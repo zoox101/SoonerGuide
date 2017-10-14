@@ -21,13 +21,13 @@ union_room_synonyms = {
 
     "student_government_association": ["s. g. a."],
 
-    "one_university_store": [""],
+    "one_university_store": ["one u. store", "o. u. store"],
 
     "union_market": [""],
 
     "will_rogers_room": [""],
 
-    "food_court": [""],
+    "food_court": ["food"],
 
     "clarke_anderson_room": [""],
 
