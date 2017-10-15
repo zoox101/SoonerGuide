@@ -65,7 +65,7 @@ union_room_synonyms = {
 
     "frontier_room": ["frontier room"],
 
-    "weitzenhoffer_dining_room": ["weitzenhoffer dining room", "dining room", "weitzenhoffer room"],
+    "weitzenhoffer_dining_room": ["weitzenhoffer dining room", "dining room", "weitzenhoffer room", "white zen hoffer room", "white zen four", "white zen fer"],
 
     "heritage_room": ["heritage room"],
 
