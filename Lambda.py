@@ -74,14 +74,30 @@ def handle_session_end_request():
     return build_response({}, build_speechlet_response(
         card_title, speech_output, None, should_end_session))
 
-
 def get_canonical_union_room_name(intent_value):
-    return get_key_from_multimap(intent_value, union_room_synonyms) or get_key_from_multimap("the "+intent_value, union_room_synonyms)
+    return get_canonical_room_name(intent_value, union_room_synonyms)
+
+def remove_prefix(str, prefix):
+    if str.startswith(prefix):
+        return str[len(prefix):]
+    return str
+
+def get_canonical_room_name(intent_value, room_synonyms):
+    return get_key_from_multimap(remove_prefix(intent_value, prefix="the "), map=room_synonyms)
 
 
 def get_key_from_multimap(value, map):
-    for key, values in map:
-        if value in values:
+    """
+    Returns the key in map that includes value in its values, or matches the value with spaces instead of underscores.
+    It returns false if nothing is matched.
+
+    For example,
+    get_key_from_multimap(<value>, {"my_key": ["value 1", "value 2"]})
+
+    would return "my_key" if value was "my key", "my_key", "value 1", or "value 2", and would return False if value was "value 3"
+    """
+    for key in map:
+        if (value.replace(" ", "_") == key) or (value == key.replace("_", " ")) or (value in map[key]):
             return key
     return False
 
@@ -90,6 +106,8 @@ def get_directions_for_intent(intent, session):
     """Creates an appropriate response, given intent and session information directly from Alexa"""
 
     room_name = get_canonical_union_room_name(intent['slots']['RoomName']['value'])
+    # if room_name is False: # meaning we can't find what room they're talking about
+        # TODO: reprompt them
 
     speech_output = union_room_directions[room_name]
     card_title = "Directions to " + room_name.replace('_', ' ')
@@ -185,3 +203,4 @@ def lambda_handler(event, context):
         return on_intent(event['request'], event['session'])
     elif event['request']['type'] == "SessionEndedRequest":
         return on_session_ended(event['request'], event['session'])
+
