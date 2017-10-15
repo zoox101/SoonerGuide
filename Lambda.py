@@ -102,8 +102,8 @@ def get_directions_for_intent(intent, session):
 
 
 def get_directions_for_room(room_name):
-    responses = {responses = {'kxou': 'It\'s the glass room in front of you to the left!',
-                              'crossroads': 'Go down the hall to your left. It will be on your right after the ramp.'}
+    responses = {'kxou': 'It\'s the glass room in front of you to the left!',
+                 'crossroads': 'Go down the hall to your left. It will be on your right after the ramp.'}
     return responses[room_name]
 
 
