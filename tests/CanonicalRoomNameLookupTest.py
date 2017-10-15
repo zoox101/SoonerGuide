@@ -3,11 +3,6 @@ from Lambda import get_canonical_union_room_name, remove_prefix, get_key_from_mu
 from alexa_synonyms import union_room_synonyms
 
 
-def createIntentForLookingUpRoom(user_provided_room_name):
-    return {'intent': {'name': 'WhereIsMyRoom', 'slots': {'RoomName': {'value': user_provided_room_name}}},
-            'requestId': ""}
-
-
 class MultimapLookupWorksTestCase(unittest.TestCase):
     def test_getMultimapWorksOkay(self):
         test_multimap = {"my_key": ["value 1", "value 2"], "my_other_key": ["value 4", "value 5"]}
@@ -47,6 +42,7 @@ class PrefixRemovalWorksTest(unittest.TestCase):
             self.assertEqual(canonical_union_room_name, remove_prefix(canonical_union_room_name, "the "),
                              "prefix removal affecting strings without prefix")
 
+
 class RoomCanonicalNameLookupTestCase(unittest.TestCase):
     def test_allCanonicalRoomNamesReturnCanonicalRoomName(self):
         for canonical_room_name in union_room_synonyms:
@@ -63,7 +59,8 @@ class RoomCanonicalNameLookupTestCase(unittest.TestCase):
                                  "a room's synonym (" + room_synonym + ") didn't identify its key")
 
     def test_missingRoomReturnsFalse(self):
-        self.assertFalse(get_canonical_room_name('missing room', union_room_synonyms), "Found room that shouldn't have been there!")
+        self.assertFalse(get_canonical_room_name('missing room', union_room_synonyms),
+                         "Found room that shouldn't have been there!")
         for canonical_union_room_name in union_room_synonyms:
             self.assertFalse(get_canonical_room_name(canonical_union_room_name + " FAIL", union_room_synonyms),
                              "Found room that shouldn't have been there!")
@@ -71,16 +68,20 @@ class RoomCanonicalNameLookupTestCase(unittest.TestCase):
     def test_canAddTheToAnyRoomNameAndItStillMatches(self):
         for canonical_union_room_name in union_room_synonyms:
             self.assertEqual(canonical_union_room_name,
-                             get_canonical_room_name("the " + canonical_union_room_name.replace("_", " "), union_room_synonyms),
+                             get_canonical_room_name("the " + canonical_union_room_name.replace("_", " "),
+                                                     union_room_synonyms),
                              "Can't add \"the \" to the front of any canonical room name")
             for room_synonym in union_room_synonyms[canonical_union_room_name]:
-                self.assertEqual(canonical_union_room_name, get_canonical_room_name("the " + room_synonym, union_room_synonyms),
+                self.assertEqual(canonical_union_room_name,
+                                 get_canonical_room_name("the " + room_synonym, union_room_synonyms),
                                  "Can't add \"the \" to the front of any room name")
 
 
-
-
 class UnionRoomCanonicalNameLookupTestCase(unittest.TestCase):
+    def test_noEmptyStringSynonyms(self):
+        for canonical_union_room_name in union_room_synonyms:
+            self.assertFalse("" in union_room_synonyms[canonical_union_room_name], canonical_union_room_name+" has an empty string as a synonym")
+
     def test_allCanonicalRoomNamesReturnCanonicalRoomName(self):
         for canonical_union_room_name in union_room_synonyms:
             self.assertEqual(canonical_union_room_name, get_canonical_union_room_name(canonical_union_room_name),

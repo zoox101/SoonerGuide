@@ -11,7 +11,7 @@ union_room_synonyms = {
 
     "starbucks": ["star bucks", "Starbucks"],
 
-    "credit_union": ["bank", "credit union", "o. u. f. c. u.", "o. u. bank", ""],
+    "credit_union": ["bank", "credit union", "o. u. f. c. u.", "o. u. bank"],
 
     "crossroads": ["cross roads", "24 hour restaurant"],
 
