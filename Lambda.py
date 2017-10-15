@@ -163,7 +163,7 @@ def on_intent(intent_request, session):
     print("on_intent requestId=" + intent_request['requestId'] +
           ", sessionId=" + session['sessionId'])
 
-    print("on_intent intentInfo=" + json.dumps(intent_request['intent']))
+    # print("on_intent intentInfo=" + json.dumps(intent_request['intent']))
 
     intent = intent_request['intent']
     intent_name = intent_request['intent']['name']
@@ -211,7 +211,7 @@ def lambda_handler(event, context):
         on_session_started({'requestId': event['request']['requestId']},
                            event['session'])
 
-    print('onHandle event_request=' + json.dumps(event['request']))
+    # print('onHandle event_request=' + json.dumps(event['request']))
 
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
