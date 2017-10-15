@@ -76,7 +76,7 @@ def handle_session_end_request():
 
 
 def get_canonical_union_room_name(intent_value):
-    return get_key_from_multimap(intent_value, union_room_synonyms)
+    return get_key_from_multimap(intent_value, union_room_synonyms) or get_key_from_multimap("the "+intent_value, union_room_synonyms)
 
 
 def get_key_from_multimap(value, map):
