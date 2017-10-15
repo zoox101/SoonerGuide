@@ -3,7 +3,7 @@ union_room_synonyms = {
 
     "post_office": ["post office", "the post office"],
 
-    "sooner_card": ["sooner card office", "sooner card"],
+    "sooner_card": ["sooner card office", "sooner card", "sun card", "sun card office"], # some times it thinks "sooner" is pronounced "sun"
 
     "ou_passport": ["o. u. passport"],
 
@@ -17,7 +17,7 @@ union_room_synonyms = {
 
     "lgbtq_lounge": ["queer lounge", "l. g. b. t. q. lounge", "l. g. b. t. lounge", "gay lounge"],
 
-    "sooner_room": ["sooner room"],
+    "sooner_room": ["sooner room", "sun room"], #sometimes Alexa hears "Sooner" as "sun"
 
     "student_government_association": ["s. g. a.", "student government", "student government association", "student government office", "s. g. a. office"],
 
