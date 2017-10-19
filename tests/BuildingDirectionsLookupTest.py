@@ -10,15 +10,15 @@ def createIntentForLookingUpBuilding(user_provided_building_name):
 
 
 class BuildingDirectionsTestCase(unittest.TestCase):
-    def test_allCanonicalBuildingNamesHaveDirections(self):
+    def test_allBuildingsWithSynonymsHaveDirections(self):
         for canonical_building_name in external_building_synonyms:
             self.assertTrue(canonical_building_name in external_building_directions_relative_to_landmarks.keys(),
                             "Building " + canonical_building_name + " is missing directions")
 
-    def test_allBuildingsWithDirectionsHaveCanonicalNames(self):
+    def test_allBuildingsWithDirectionsHaveSynonyms(self):
         for canonical_building_name in external_building_directions_relative_to_landmarks:
             self.assertTrue(canonical_building_name in external_building_synonyms.keys(),
-                            "Building " + canonical_building_name + " has directions but no canonical name")
+                            "Building " + canonical_building_name + " has directions but no definition of synonyms")
 
     def test_firingIntentForBuildingReturnsExpectedDirections(self):
         for canonical_building_name in external_building_directions_relative_to_landmarks:

@@ -120,7 +120,7 @@ external_building_synonyms = {
 
     "kaufman_hall": ["kaufman", "cough men"],
 
-    "kraettli_apartments": [],
+    "kraetteli_apartments": [],
 
     "lissa_and_cy_wagner_student_academic_services_center": ["wagner student center", "wagner center", "student academic services", "academic services"],
 
