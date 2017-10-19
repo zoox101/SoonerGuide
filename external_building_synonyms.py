@@ -124,7 +124,7 @@ external_building_synonyms = {
 
     "lissa_and_cy_wagner_student_academic_services_center": ["wagner student center", "wagner center", "student academic services", "academic services"],
 
-    "lloyd_noble_center": ["lloyd noble", "graduation"],
+    "lloyd_noble_center": ["lloyd noble", "graduation", "free parking", "parking lot"],
 
     "l_dale_mitchell_baseball_park": ["baseball park", "baseball stadium", "baseball field", "baseball diamond", "baseball"],
 
