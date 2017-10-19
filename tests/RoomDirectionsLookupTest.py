@@ -1,11 +1,11 @@
 import unittest
 from room_directions import union_room_directions
 from alexa_synonyms import union_room_synonyms
-from Lambda import on_intent
+from Lambda import on_intent, ROOM_NAME_SLOT_KEY
 
 
 def createIntentForLookingUpRoom(user_provided_room_name):
-    return {'intent': {'name': 'WhereIsMyRoom', 'slots': {'RoomName': {'value': user_provided_room_name}}},
+    return {'intent': {'name': 'WhereIsMyRoom', 'slots': {ROOM_NAME_SLOT_KEY: {'value': user_provided_room_name}}},
             'requestId': ""}
 
 

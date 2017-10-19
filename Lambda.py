@@ -10,11 +10,16 @@ http://amzn.to/1LGWsLG
 from __future__ import print_function
 
 from alexa_synonyms import union_room_synonyms
+from external_building_synonyms import external_building_synonyms
 from external_building_directions import external_building_directions_relative_to_landmarks
 from room_directions import union_room_directions
 
-
 # --------------- Helpers that build all of the responses ----------------------
+ROOM_DIRECTIONS_INTENT_NAME = "WhereIsMyRoom"
+BUILDING_DIRECTIONS_INTENT_NAME = "WhereIsMyBuilding"
+ROOM_NAME_SLOT_KEY = 'RoomName'
+BUILDING_NAME_SLOT_KEY = 'BuildingName'
+
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
@@ -77,8 +82,12 @@ def handle_session_end_request():
         card_title, speech_output, None, should_end_session))
 
 
-def get_canonical_union_room_name(intent_value):
-    return get_canonical_room_name(intent_value, union_room_synonyms)
+def get_canonical_union_room_name(intent_value_for_union_room):
+    return get_canonical_name(intent_value_for_union_room, union_room_synonyms)
+
+
+def get_canonical_building_name(intent_value_for_building):
+    return get_canonical_name(intent_value_for_building, external_building_synonyms)
 
 
 def remove_prefix(str, prefix):
@@ -87,12 +96,9 @@ def remove_prefix(str, prefix):
     return str
 
 
-def get_canonical_room_name(intent_value, room_synonyms):
-    return get_key_from_multimap(remove_prefix(intent_value, prefix="the "), map=room_synonyms)
+def get_canonical_name(intent_value_for_location, canonical_name_synonyms):
+    return get_key_from_multimap(remove_prefix(intent_value_for_location, prefix="the "), map=canonical_name_synonyms)
 
-#TODO: Check to see if this works properly
-def get_canonical_blding_name(intent_value, external_building_synonyms):
-    return get_key_from_multimap(remove_prefix(intent_value, prefix="the "), map=external_building_synonyms)
 
 def get_key_from_multimap(value, map):
     """
@@ -113,49 +119,49 @@ def get_key_from_multimap(value, map):
 def get_directions_for_intent(intent, session):
     """Creates an appropriate response, given intent and session information directly from Alexa"""
 
-    room_name = get_canonical_union_room_name(intent['slots']['RoomName']['value'])
+    room_name = get_canonical_union_room_name(intent['slots'][ROOM_NAME_SLOT_KEY]['value'])
 
     if room_name is False:  # meaning we can't find what room they're talking about
         # TODO: reprompt them for the room name they meant to say
         return build_response(session_attributes={},
                               speechlet_response=build_speechlet_response(
-                                  title="Directions to \"" + intent['slots']['RoomName']['value'] + "\"",
-                                  output=("I don't know where the room called " + intent['slots']['RoomName'][
+                                  title="Directions to \"" + intent['slots'][ROOM_NAME_SLOT_KEY]['value'] + "\"",
+                                  output=("I don't know where the room called " + intent['slots'][ROOM_NAME_SLOT_KEY][
                                       'value'] + " is."),
                                   reprompt_text=None,
                                   should_end_session=True))
     else:  # if we COULD get a canonical room_name
-        speech_output = union_room_directions[room_name]
-        card_title = "Directions to " + room_name.replace('_', ' ')
-        reprompt_text = None
-        should_end_session = True
+        return build_directions_response_from_directions_source(room_name, union_room_directions)
 
-        session_attributes = {}
-        return build_response(session_attributes, build_speechlet_response(
-            card_title, speech_output, reprompt_text, should_end_session))
 
-#TODO: Check to see if the intent works properly
-def get_directions_for_blding_intent(intent,session):
-    blding_name = get_canonical_blding_name(intent['slots']['BldingName']['value'])
+# TODO: Check to see if the intent works properly
+def get_directions_for_blding_intent(intent, session):
+    blding_name = get_canonical_building_name(intent['slots'][BUILDING_NAME_SLOT_KEY]['value'])
 
     if blding_name is False:
-        #TODO: reprompt them for the building they meant to say
+        # TODO: reprompt them for the building they meant to say
         return build_response(session_attributes={},
                               speechlet_response=build_speechlet_response(
-                                  title="Directions to \"" + intent['slots']['BldingName']['value'] + "\"",
-                                  output=("I don't know where the building called " + intent['slots']['BldingName'][
+                                  title="Directions to \"" + intent['slots'][BUILDING_NAME_SLOT_KEY]['value'] + "\"",
+                                  output=(
+                                  "I don't know where the building called " + intent['slots'][BUILDING_NAME_SLOT_KEY][
                                       'value'] + " is."),
                                   reprompt_text=None,
                                   should_end_session=True))
-    else: #if we COULD get a canonical building_name
-        speech_output = external_building_directions_relative_to_landmarks[blding_name]
-        card_title = "Directions to " + blding_name.replace('_', ' ')
-        reprompt_text = None
-        should_end_session = True
+    else:  # if we COULD get a canonical building_name
+        return build_directions_response_from_directions_source(blding_name,
+                                                                external_building_directions_relative_to_landmarks)
 
-        session_attributes = {}
-        return build_response(session_attributes, build_speechlet_response(
-            card_title, speech_output, reprompt_text, should_end_session))
+
+def build_directions_response_from_directions_source(canonical_location_name, directions_map):
+    speech_output = directions_map[canonical_location_name]
+    card_title = "Directions to " + canonical_location_name.replace('_', ' ')
+    reprompt_text = None
+    should_end_session = True
+
+    session_attributes = {}
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
 
 
 # --------------- Events ------------------
@@ -190,8 +196,10 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == "WhereIsMyRoom":
+    if intent_name == ROOM_DIRECTIONS_INTENT_NAME:
         return get_directions_for_intent(intent, session)
+    elif intent_name == BUILDING_DIRECTIONS_INTENT_NAME:
+        return get_directions_for_blding_intent(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
