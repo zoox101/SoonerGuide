@@ -93,3 +93,9 @@ union_room_synonyms = {
 
     "paul_massad_conference_room": ["paul massad conference room", "conference room", "massad conference room"]
 }
+
+
+def get_pronounceable_synonyms(canonical_name, synonyms):
+    return ["the " + canonical_name.replace("_", " ")] + \
+           ["the " + syn for syn in synonyms[canonical_name]] + \
+           synonyms[canonical_name]

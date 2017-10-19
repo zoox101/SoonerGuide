@@ -1,4 +1,4 @@
-from alexa_synonyms import union_room_synonyms
+from alexa_synonyms import union_room_synonyms, get_pronounceable_synonyms
 import json
 
 
@@ -7,12 +7,6 @@ def make_slots_for_room_names(room_synonyms):
              'name': {'value': canonical_room_name.replace('_', ' '),
                       'synonyms': get_pronounceable_synonyms(canonical_room_name, room_synonyms)}}
             for canonical_room_name in room_synonyms]
-
-
-def get_pronounceable_synonyms(canonical_room_name, room_synonyms):
-    return ["the " + canonical_room_name.replace("_", " ")] + \
-           ["the " + syn for syn in room_synonyms[canonical_room_name]] + \
-           room_synonyms[canonical_room_name]
 
 
 if __name__ == '__main__':
