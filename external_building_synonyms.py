@@ -17,9 +17,9 @@ external_building_synonyms = {
 
     "boomer_outreach_building": ["outreach building"],
 
-    "boyd_house": ["President's House"],
+    "boyd_house": ["President's House", "Boren House"],
 
-    "brooks_street_transfer_station": ["cart station", "cart", "public transportation", "bus station"],
+    "brooks_street_transfer_station": ["cart station", "cart", "public transportation", "bus station", "duck pond", "duck pond parking lot"],
 
     "buchanan_hall": ["buchanan", "bursar", "bursar's office"],
 

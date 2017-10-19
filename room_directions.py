@@ -1,4 +1,4 @@
-union_room_directions = {'kxou': 'Its the glass room in front of you to the left!',
+union_room_directions = {'kxou': 'The K.X.O.U. radio room is the glass room in the center of the union, across from the central staircase and the One U store.',
                          'post_office': 'It\'s on the right side of the hallway towards crossroads, across from the Starbucks. ',
                          'sooner_card': 'It\'s on the left side of the hallway leading towards crossroads, to the left of the Starbucks.',
                          'ou_passport': 'It\'s on the left side of the hallway leading towards crossroads, to the left of the Starbucks.',
