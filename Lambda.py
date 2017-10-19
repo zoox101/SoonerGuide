@@ -8,9 +8,10 @@ http://amzn.to/1LGWsLG
 """
 
 from __future__ import print_function
+
 from alexa_synonyms import union_room_synonyms
+from external_building_directions import external_building_directions_relative_to_landmarks
 from room_directions import union_room_directions
-import json
 
 
 # --------------- Helpers that build all of the responses ----------------------
@@ -89,6 +90,9 @@ def remove_prefix(str, prefix):
 def get_canonical_room_name(intent_value, room_synonyms):
     return get_key_from_multimap(remove_prefix(intent_value, prefix="the "), map=room_synonyms)
 
+#TODO: Check to see if this works properly
+def get_canonical_blding_name(intent_value, external_building_synonyms):
+    return get_key_from_multimap(remove_prefix(intent_value, prefix="the "), map=external_building_synonyms)
 
 def get_key_from_multimap(value, map):
     """
@@ -130,11 +134,28 @@ def get_directions_for_intent(intent, session):
         return build_response(session_attributes, build_speechlet_response(
             card_title, speech_output, reprompt_text, should_end_session))
 
+#TODO: Check to see if the intent works properly
+def get_directions_for_blding_intent(intent,session):
+    blding_name = get_canonical_blding_name(intent['slots']['BldingName']['value'])
 
-def get_directions_for_room(room_name):
-    responses = {'kxou': 'It\'s the glass room in front of you to the left!',
-                 'crossroads': 'Go down the hall to your left. It will be on your right after the ramp.'}
-    return responses[room_name]
+    if blding_name is False:
+        #TODO: reprompt them for the building they meant to say
+        return build_response(session_attributes={},
+                              speechlet_response=build_speechlet_response(
+                                  title="Directions to \"" + intent['slots']['BldingName']['value'] + "\"",
+                                  output=("I don't know where the building called " + intent['slots']['BldingName'][
+                                      'value'] + " is."),
+                                  reprompt_text=None,
+                                  should_end_session=True))
+    else: #if we COULD get a canonical building_name
+        speech_output = external_building_directions_relative_to_landmarks[blding_name]
+        card_title = "Directions to " + blding_name.replace('_', ' ')
+        reprompt_text = None
+        should_end_session = True
+
+        session_attributes = {}
+        return build_response(session_attributes, build_speechlet_response(
+            card_title, speech_output, reprompt_text, should_end_session))
 
 
 # --------------- Events ------------------
