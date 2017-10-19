@@ -19,7 +19,8 @@ external_building_synonyms = {
 
     "boyd_house": ["President's House", "Boren House"],
 
-    "brooks_street_transfer_station": ["cart station", "cart", "public transportation", "bus station", "duck pond", "duck pond parking lot"],
+    "brooks_street_transfer_station": ["cart station", "cart", "public transportation", "bus station", "duck pond",
+                                       "duck pond parking lot"],
 
     "buchanan_hall": ["buchanan", "bursar", "bursar's office"],
 
@@ -31,9 +32,10 @@ external_building_synonyms = {
 
     "carpenter_hall": ["carpenter"],
 
-    "carson_engineering_center": ["carson"],
+    "carson_engineering_center": ["carson", "engineering quad"],
 
-    "cate_center": ["cate", "cate 1", "cate 2", "cate 3", "cate 4", "cate 5", "cate cafeteria", "cate food court", "cate lounge"],
+    "cate_center": ["cate", "cate 1", "cate 2", "cate 3", "cate 4", "cate 5", "cate cafeteria", "cate food court",
+                    "cate lounge"],
 
     "catlett_music_center": ["catlett", "music building", "orchestra"],
 
@@ -55,13 +57,16 @@ external_building_synonyms = {
 
     "dale_hall_tower": ["dale tower"],
 
-    "devon_energy_hall": ["devon", "devon hall", "engineering", "computer science building", "school of computer science"],
+    "devon_energy_hall": ["devon", "devon hall", "engineering", "computer science building",
+                          "school of computer science"],
 
     "dunham_residential_college": ["dunham", "dunham college"],
 
-    "ellison_hall": ["ellison"],
+    "ellison_hall": ["ellison", "math building"],
 
     "elm_ave_parking_facility": ["elm parking garage"],
+
+    "elm_avenue": ["elm", "elm avenue"],
 
     "engineering_laboratory": ["engineer lab", "engineering lab"],
 
@@ -90,9 +95,9 @@ external_building_synonyms = {
 
     "gaylord_hall": ["broadcasting building", "gaylord", "t. v. studio"],
 
-# Took out 'the' because the search algorithm already accounts for a 'the' at the front of any name
+    # Took out 'the' because the search algorithm already accounts for a 'the' at the front of any name
     "gaylord_family_oklahoma_memorial_stadium": ["oklahoma memorial stadium", "gaylord stadium", "football stadium",
-                                                     "stadium", "o. u. stadium"],
+                                                 "stadium", "o. u. stadium"],
 
     "george_lynn_cross_hall": ["george lynn cross", "cross hall"],
 
@@ -116,21 +121,25 @@ external_building_synonyms = {
 
     "jimmie_austin_o_u_golf_course": ["o. u. golf course", "golf course"],
 
-    "jim_thorpe_multi_cultural_center": ["jim thorpe", "multi cultural center", "jim thorpe building", "multi cultural building"],
+    "jim_thorpe_multi_cultural_center": ["jim thorpe", "multi cultural center", "jim thorpe building",
+                                         "multi cultural building"],
 
     "kaufman_hall": ["kaufman", "cough men"],
 
     "kraetteli_apartments": [],
 
-    "lissa_and_cy_wagner_student_academic_services_center": ["wagner student center", "wagner center", "student academic services", "academic services"],
+    "lissa_and_cy_wagner_student_academic_services_center": ["wagner student center", "wagner center",
+                                                             "student academic services", "academic services"],
 
     "lloyd_noble_center": ["lloyd noble", "graduation", "free parking", "parking lot"],
 
-    "l_dale_mitchell_baseball_park": ["baseball park", "baseball stadium", "baseball field", "baseball diamond", "baseball"],
+    "l_dale_mitchell_baseball_park": ["baseball park", "baseball stadium", "baseball field", "baseball diamond",
+                                      "baseball"],
 
     "mccarter_hall": ["mccarter"],
 
-    "michael_f_price_college_of_business": ["price college of business", "college of business", "business college", "price"],
+    "michael_f_price_college_of_business": ["price college of business", "college of business", "business college",
+                                            "price"],
 
     "monnet_hall": ["monnet"],
 
@@ -184,13 +193,15 @@ external_building_synonyms = {
 
     "stephenson_life_sciences_research_center": ["life sciences", "life sciences research center"],
 
-    "stephenson_research_and_technology_center": ["research and technology center", "stephenson", "stepheson hall", "stepheson center", "technology center"],
+    "stephenson_research_and_technology_center": ["research and technology center", "stephenson", "stepheson hall",
+                                                  "stepheson center", "technology center"],
 
     "sutton_hall": ["sutton"],
 
     "t_howard_mccasland_field_house": ["mccasland house", "field house"],
 
-    "theta_m_dempsey_transportation_operations_center": ["dempsey center", "transporation operations center", "transportation center", "transportation building"],
+    "theta_m_dempsey_transportation_operations_center": ["dempsey center", "transporation operations center",
+                                                         "transportation center", "transportation building"],
 
     "three_partners_place": ["innovation hub", "three partner place"],
 
@@ -200,7 +211,8 @@ external_building_synonyms = {
 
     "university_of_oklahoma_foundation": ["oklahoma foundation"],
 
-    "viersen_gymnastics_center": ["gymnastics center", "viersen center", "viersen building", "gymnastics building", "gymnastics"],
+    "viersen_gymnastics_center": ["gymnastics center", "viersen center", "viersen building", "gymnastics building",
+                                  "gymnastics"],
 
     "walker_tower": ["walker", "walker dorms", "walker tower", "walker adams mall", "dorms", "dorm towers"],
 
