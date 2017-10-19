@@ -121,7 +121,7 @@ def get_directions_for_intent(intent, session):
 
     room_name = get_canonical_union_room_name(intent['slots'][ROOM_NAME_SLOT_KEY]['value'])
 
-    if room_name is False:  # meaning we can't find what room they're talking about
+    if room_name is False or room_name not in union_room_directions:  # meaning we can't find what room they're talking about
         # TODO: reprompt them for the room name they meant to say
         return build_response(session_attributes={},
                               speechlet_response=build_speechlet_response(
@@ -138,7 +138,7 @@ def get_directions_for_intent(intent, session):
 def get_directions_for_blding_intent(intent, session):
     blding_name = get_canonical_building_name(intent['slots'][BUILDING_NAME_SLOT_KEY]['value'])
 
-    if blding_name is False:
+    if blding_name is False or blding_name not in external_building_directions_relative_to_landmarks:
         # TODO: reprompt them for the building they meant to say
         return build_response(session_attributes={},
                               speechlet_response=build_speechlet_response(
