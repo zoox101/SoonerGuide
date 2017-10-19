@@ -11,7 +11,7 @@ external_building_synonyms = {
 
     "armory": ["army r. o. t. c.", "navy r. o. t. c."],
 
-    "asp_avenue_parking_facility": ["asp parking garage", "union parking garage"],
+    "asp_avenue_parking_facility": ["asp parking garage", "union parking garage", "old parking garage"],
 
     "bizzell_memorial_library": ["bizzell", "library"],
 
@@ -112,7 +112,7 @@ external_building_synonyms = {
 
     "jacobson_hall": ["jacobson", "visitor center"],
 
-    "jenkins_avenue_parking_facility": ["jenkins parking garage"],
+    "jenkins_avenue_parking_facility": ["jenkins parking garage", "new parking garage"],
 
     "jimmie_austin_o_u_golf_course": ["o. u. golf course", "golf course"],
 
