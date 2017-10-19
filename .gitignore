@@ -4,3 +4,4 @@ buildingNameSlots.json
 slotTypesArray.json
 __pycache__/
 project.zip
+*.pyc
