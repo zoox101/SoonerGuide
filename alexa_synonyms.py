@@ -1,5 +1,5 @@
 union_room_synonyms = {
-    "kxou": ["the radio station", "radio station", "k. x. o. u."],
+    "kxou": ["the radio station", "radio station", "k. x. o. u.", "radio room", "radio station room"],
 
     "post_office": ["post office", "the post office"],
 

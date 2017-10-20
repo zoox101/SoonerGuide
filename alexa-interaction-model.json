@@ -38,7 +38,8 @@
         "where is {RoomName} room",
         "where's {RoomName} in the Union",
         "where {RoomName} is in the Union",
-        "where {RoomName} room is"
+        "where {RoomName} room is",
+        "how to get to {RoomName} in the union"
       ],
       "slots": [
         {
