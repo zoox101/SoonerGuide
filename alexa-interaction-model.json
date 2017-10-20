@@ -131,9 +131,7 @@
             "synonyms": [
               "the starbucks",
               "the star bucks",
-              "the Starbucks",
-              "star bucks",
-              "Starbucks"
+              "star bucks"
             ]
           }
         },
@@ -868,10 +866,10 @@
             "value": "boyd house",
             "synonyms": [
               "the boyd house",
-              "the President's House",
-              "the Boren House",
-              "President's House",
-              "Boren House"
+              "the presidents house",
+              "the boren house",
+              "presidents house",
+              "boren house"
             ]
           }
         },
@@ -1716,17 +1714,6 @@
           }
         },
         {
-          "id": "old_faculty_club",
-          "name": {
-            "value": "old faculty club",
-            "synonyms": [
-              "the old faculty club",
-              "the old faculty building",
-              "old faculty building"
-            ]
-          }
-        },
-        {
           "id": "one_partners_place",
           "name": {
             "value": "one partners place",
@@ -1992,36 +1979,6 @@
           }
         },
         {
-          "id": "t_howard_mccasland_field_house",
-          "name": {
-            "value": "t howard mccasland field house",
-            "synonyms": [
-              "the t howard mccasland field house",
-              "the mccasland house",
-              "the field house",
-              "mccasland house",
-              "field house"
-            ]
-          }
-        },
-        {
-          "id": "theta_m_dempsey_transportation_operations_center",
-          "name": {
-            "value": "theta m dempsey transportation operations center",
-            "synonyms": [
-              "the theta m dempsey transportation operations center",
-              "the dempsey center",
-              "the transporation operations center",
-              "the transportation center",
-              "the transportation building",
-              "dempsey center",
-              "transporation operations center",
-              "transportation center",
-              "transportation building"
-            ]
-          }
-        },
-        {
           "id": "three_partners_place",
           "name": {
             "value": "three partners place",
@@ -2068,25 +2025,6 @@
               "the university of oklahoma foundation",
               "the oklahoma foundation",
               "oklahoma foundation"
-            ]
-          }
-        },
-        {
-          "id": "viersen_gymnastics_center",
-          "name": {
-            "value": "viersen gymnastics center",
-            "synonyms": [
-              "the viersen gymnastics center",
-              "the gymnastics center",
-              "the viersen center",
-              "the viersen building",
-              "the gymnastics building",
-              "the gymnastics",
-              "gymnastics center",
-              "viersen center",
-              "viersen building",
-              "gymnastics building",
-              "gymnastics"
             ]
           }
         },

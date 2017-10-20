@@ -114,6 +114,14 @@ class UnionRoomCanonicalNameLookupTestCase(unittest.TestCase):
                 self.assertEqual(canonical_union_room_name, get_canonical_union_room_name("the " + room_synonym),
                                  "Can't add \"the \" to the front of any room name")
 
+    def test_noCapitalLetters(self):
+        for canonical_room_name in union_room_synonyms:
+            self.assertTrue(canonical_room_name.islower(),
+                            "canonical room name " + canonical_room_name + " has a capital letter")
+            for room_synonym in union_room_synonyms[canonical_room_name]:
+                self.assertTrue(room_synonym.islower(),
+                                canonical_room_name + " synonym " + room_synonym + " has a capital letter")
+
 
 class BuildingCanonicalNameLookupTestCase(unittest.TestCase):
     def test_noEmptyStringSynonyms(self):
@@ -150,6 +158,14 @@ class BuildingCanonicalNameLookupTestCase(unittest.TestCase):
             for building_synonym in external_building_synonyms[canonical_building_name]:
                 self.assertEqual(canonical_building_name, get_canonical_building_name("the " + building_synonym),
                                  "Can't add \"the \" to the front of any building name")
+
+    def test_noCapitalLetters(self):
+        for canonical_building_name in external_building_synonyms:
+            self.assertTrue(canonical_building_name.islower(),
+                            "canonical name " + canonical_building_name + " has a capital letter")
+            for building_synonym in external_building_synonyms[canonical_building_name]:
+                self.assertTrue(building_synonym.islower(),
+                                canonical_building_name + " synonym " + building_synonym + " has a capital letter")
 
 
 if __name__ == '__main__':

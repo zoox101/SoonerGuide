@@ -17,7 +17,7 @@ external_building_synonyms = {
 
     "boomer_outreach_building": ["outreach building"],
 
-    "boyd_house": ["President's House", "Boren House"],
+    "boyd_house": ["presidents house", "boren house"],
 
     "brooks_street_transfer_station": ["cart station", "cart", "public transportation", "bus station", "duck pond",
                                        "duck pond parking lot"],
@@ -157,7 +157,9 @@ external_building_synonyms = {
 
     "observatory": ["telescope", "old observatory"],
 
-    "old_faculty_club": ["old faculty building"],
+    "oklahoma_memorial_union" : ["union", "student union"],
+
+    # "old_faculty_club": ["old faculty building"],
 
     "one_partners_place": ["south campus", "one partner place"],
 
@@ -198,10 +200,10 @@ external_building_synonyms = {
 
     "sutton_hall": ["sutton"],
 
-    "t_howard_mccasland_field_house": ["mccasland house", "field house"],
+    # "t_howard_mccasland_field_house": ["mccasland house", "field house"],
 
-    "theta_m_dempsey_transportation_operations_center": ["dempsey center", "transporation operations center",
-                                                         "transportation center", "transportation building"],
+    # "theta_m_dempsey_transportation_operations_center": ["dempsey center", "transporation operations center",
+    #                                                      "transportation center", "transportation building"],
 
     "three_partners_place": ["innovation hub", "three partner place"],
 
@@ -211,8 +213,8 @@ external_building_synonyms = {
 
     "university_of_oklahoma_foundation": ["oklahoma foundation"],
 
-    "viersen_gymnastics_center": ["gymnastics center", "viersen center", "viersen building", "gymnastics building",
-                                  "gymnastics"],
+    # "viersen_gymnastics_center": ["gymnastics center", "viersen center", "viersen building", "gymnastics building",
+    #                               "gymnastics"],
 
     "walker_tower": ["walker", "walker dorms", "walker tower", "walker adams mall", "dorms", "dorm towers"],
 

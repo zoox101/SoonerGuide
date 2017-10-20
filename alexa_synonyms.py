@@ -9,7 +9,7 @@ union_room_synonyms = {
 
     "student_art_gallery": ["student art gallery", "art gallery", "art shop"],
 
-    "starbucks": ["star bucks", "Starbucks"],
+    "starbucks": ["star bucks"],
 
     "credit_union": ["bank", "credit union", "o. u. f. c. u.", "o. u. bank"],
 

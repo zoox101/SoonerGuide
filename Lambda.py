@@ -97,7 +97,7 @@ def remove_prefix(str, prefix):
 
 
 def get_canonical_name(intent_value_for_location, canonical_name_synonyms):
-    return get_key_from_multimap(remove_prefix(intent_value_for_location, prefix="the "), map=canonical_name_synonyms)
+    return get_key_from_multimap(remove_prefix(intent_value_for_location.lower(), prefix="the "), map=canonical_name_synonyms)
 
 
 def get_key_from_multimap(value, map):
