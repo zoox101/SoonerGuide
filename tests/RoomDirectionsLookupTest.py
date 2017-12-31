@@ -1,7 +1,7 @@
 import unittest
-from room_directions import union_room_directions
-from alexa_synonyms import union_room_synonyms
-from Lambda import on_intent, ROOM_NAME_SLOT_KEY
+from src.room_directions import union_room_directions
+from src.alexa_synonyms import union_room_synonyms
+from src.Lambda import on_intent, ROOM_NAME_SLOT_KEY
 
 
 def createIntentForLookingUpRoom(user_provided_room_name):

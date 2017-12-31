@@ -1,7 +1,7 @@
 import unittest
-from external_building_directions import external_building_directions_relative_to_landmarks
-from external_building_synonyms import external_building_synonyms
-from Lambda import on_intent, BUILDING_NAME_SLOT_KEY, BUILDING_DIRECTIONS_INTENT_NAME
+from src.external_building_directions import external_building_directions_relative_to_landmarks
+from src.external_building_synonyms import external_building_synonyms
+from src.Lambda import on_intent, BUILDING_NAME_SLOT_KEY, BUILDING_DIRECTIONS_INTENT_NAME
 
 
 def createIntentForLookingUpBuilding(user_provided_building_name):

@@ -1,7 +1,7 @@
 all: project.zip slots
 
-project.zip: *.py
-	zip -u $@ $^
+project.zip: src/*.py
+	zip -u $@ -j $^
 
 slots: roomNameSlots.json buildingNameSlots.json slotTypesArray.json
 

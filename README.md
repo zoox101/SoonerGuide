@@ -35,8 +35,8 @@ Alexa will understand they mean the same thing.
 This is broken and does not work; it will always send back the thing they said, and not the canonical synonym.
 However, it doesn improve the interaction model, so Alexa can better match it to the right thing.
 
-See [alexa_synonyms.py](alexa_synonyms.py) for a list of these synonyms.
-To build a list of slots for use in the interaction model, see [makeSlotsForRoomNames.py](makeSlotsForRoomNames.py), or run `make roomNameSlots.json`.
+See [alexa_synonyms.py](src/alexa_synonyms.py) for a list of these synonyms.
+To build a list of slots for use in the interaction model, see [makeSlotsForRoomNames.py](src/makeSlotsForRoomNames.py), or run `make roomNameSlots.json`.
 This will create a JSON file that can be used to define the values of the `RoomName` slot. 
 
 ## Contributing

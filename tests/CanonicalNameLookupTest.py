@@ -1,8 +1,8 @@
 import unittest
-from Lambda import get_canonical_union_room_name, remove_prefix, get_key_from_multimap, get_canonical_name, \
+from src.Lambda import get_canonical_union_room_name, remove_prefix, get_key_from_multimap, get_canonical_name, \
     get_canonical_building_name
-from alexa_synonyms import union_room_synonyms
-from external_building_synonyms import external_building_synonyms
+from src.alexa_synonyms import union_room_synonyms
+from src.external_building_synonyms import external_building_synonyms
 
 
 class MultimapLookupWorksTestCase(unittest.TestCase):
